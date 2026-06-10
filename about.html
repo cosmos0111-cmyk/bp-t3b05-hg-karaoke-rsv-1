@@ -3,112 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[SYSTEM_REPORT] 화곡 가라오케 투명 정찰 분석서 - about</title>
-    <meta name="description" content="화곡 가라오케의 투명 운영 개요 리포트! 스노든 폭로 무결성 대책과 공간 이완 공명을 담은 분석.">
+    <title>화곡 가라오케 정보 | 프리미엄 프라이빗 가라오케 상세안내</title>
+    <meta name="description" content="화곡역 도보 3분, 최고의 음향시설과 프라이빗 룸을 갖춘 화곡 가라오케 상세정보. 연중무휴 24시간 운영, 객실 사양, 가격, 위치 안내. 전화 010-6279-0862로 문의하세요.">
+    <meta name="keywords" content="화곡 가라오케 정보, 화곡 가라오케 상세안내, 화곡 가라오케 시설, 화곡 가라오케 가격, 화곡 가라오케 객실, 화곡역 가라오케 위치">
+    <link rel="canonical" href="https://t3b05-hg-karaoke-rsv-1.vercel.app/info/">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="화곡 가라오케 정보 | 프리미엄 프라이빗 가라오케 상세안내">
+    <meta property="og:description" content="화곡역 도보 3분, 최고의 음향시설과 프라이빗 룸을 갖춘 화곡 가라오케 상세정보. 연중무휴 24시간 운영, 객실 사양, 가격, 위치 안내. 전화 010-6279-0862로 문의하세요.">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent: #ff0055;
+            --accent-hover: #ff3377;
+            --border: #2a2a2a;
+            --neon-glow: 0 0 10px rgba(255,0,85,0.3);
+            --font-mono: 'Courier New', Courier, monospace;
+            --container-max: 1200px;
+            --header-h: 70px;
+        }
+        html { scroll-behavior: smooth; }
         body {
-            background-color: #040209;
-            color: #94a3b8;
-            font-family: 'Outfit', 'Inter', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            line-height: 1.8;
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        .report-shell {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #0d061a;
-            border: 1px solid #2e0854;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 0 25px rgba(255, 0, 85, 0.15);
+        a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+        a:hover { color: var(--accent-hover); text-decoration: none; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: 0.02em; }
+        h1 { font-size: 2.4rem; margin-bottom: 1.2rem; }
+        h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+        p, li { font-size: 1rem; margin-bottom: 0.8rem; color: var(--text-secondary); }
+        img, svg { max-width: 100%; display: block; }
+        .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem; }
+
+        /* 헤더 & 네비게이션 */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--header-h);
+            display: flex;
+            align-items: center;
         }
-        h1, h2 {
-            color: #fff;
-            border-bottom: 1px solid #2e0854;
-            padding-bottom: 10px;
-            text-shadow: 0 0 8px #ff0055;
-        }
-        p {
-            font-size: 1.03rem;
-        }
-        .highlight {
-            color: #00f3ff;
-            font-weight: bold;
-        }
-        .review-box {
-            background: #07030e;
-            border: 1px solid #4a044e;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        .btn-link {
-            display: inline-block;
-            margin-top: 25px;
-            color: #00f3ff;
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
             text-decoration: none;
-            border: 1px solid #00f3ff;
-            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        .logo a:hover { color: var(--accent); }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active { color: var(--accent); }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--text-primary);
+            display: block;
+        }
+        .tel-link {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff !important;
+            padding: 0.4rem 1.2rem;
+            font-weight: 700;
+            font-size: 0.85rem;
             border-radius: 4px;
-            background: rgba(0, 243, 255, 0.05);
+            text-decoration: none;
+            transition: background 0.2s;
         }
-        .btn-link:hover {
-            background: #00f3ff;
-            color: #000;
-            box-shadow: 0 0 15px #00f3ff;
+        .tel-link:hover { background: var(--accent-hover); }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--header-h);
+                left: 0;
+                width: 100%;
+                background: var(--bg-secondary);
+                border-bottom: 2px solid var(--border);
+                padding: 1.5rem;
+                gap: 1.2rem;
+                align-items: flex-start;
+            }
+            nav.open { display: flex; }
         }
+
+        /* ---- 메인 콘텐츠 영역 ---- */
+        main {
+            flex: 1;
+            padding: 3rem 0;
+        }
+
+        /* 정보 섹션 스타일 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        .info-card:hover { border-color: var(--accent); }
+        .info-card h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .info-card p, .info-card li { font-size: 0.95rem; }
+        .info-card ul { list-style: none; padding-left: 0; }
+        .info-card ul li::before { content: '▸ '; color: var(--accent); }
+
+        .stat-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+        }
+        .stat-item .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        .stat-item .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.3rem;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid var(--border);
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .data-table td { color: var(--text-secondary); }
+        .data-table tr:hover td { background: var(--bg-card); }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+        .faq-answer { color: var(--text-secondary); line-height: 1.6; }
+
+        .location-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+        .location-box h3 { margin-bottom: 1rem; }
+        .location-box p { margin-bottom: 0.5rem; }
+
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            .stat-block { flex-direction: column; }
+        }
+
+        /* 푸터 */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 2px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); }
     </style>
 </head>
 <body>
+    <header>
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; height: 100%;">
+            <div class="logo">
+                <a href="/">화곡 가라오케</a>
+            </div>
+            <button class="hamburger" aria-label="메뉴 열기" onclick="document.querySelector('nav').classList.toggle('open')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <a href="/">홈</a>
+                <a href="/info/" class="active">정보</a>
+                <a href="/reservation/">예약</a>
+                <a href="/contact/">문의</a>
+                <a href="tel:010-6279-0862" class="tel-link">010-6279-0862</a>
+            </nav>
+        </div>
+    </header>
 
-<div class="report-shell">
-    <h1>REPORT: 화곡 가성비 가라오케 무결성 보안 프로토콜</h1>
-    <p>
-        어이 브로, 형이 정교하게 오케스트레이션한 <span class="highlight">화곡 가라오케 투명 가이드망</span>의 소개 분석 보고서이다.
-        우리는 화곡역 신월동, 강서구 일대에서 일과의 고단함에 지친 직장인 브로들의 대뇌 인프라 피로를 청소하고, 
-        가장 정직한 정찰 요율을 선언하여 불량 삐끼들의 악질 요금 오버플로우 바가지 꼼수를 완벽 격리하기 위해 탄생한 정보망이다.
-    </p>
+    <main>
+        <div class="container">
+            <h1>화곡 가라오케 상세 정보</h1>
+            <p class="subtitle" style="font-size:1.1rem; margin-bottom:2rem; color:var(--text-secondary);">
+                화곡역 도보 3분, 연중무휴 24시간 운영. 객실 사양, 가격 정책, 위치 등 모든 정보를 투명하게 제공합니다.
+            </p>
 
-    <h2>🔒 NSA PRISM 도청 거미줄 폭로를 관통하는 프라이버시 물리 법칙</h2>
-    <p>
-        앞선 메인 쉘에서 소개했듯, 에드워드 스노든이 폭로한 NSA의 프리즘(PRISM)망은 우리의 모든 커뮤니케이션 패킷을 몰래 훔쳐보는 악의적인 중앙 집권식 감시망이었지. 
-        화곡 일대의 양심 없는 삐끼들도 똑같이 복잡한 요금제 장난과 변종 추가금 옵션으로 브로들의 대뇌 버퍼를 교란시킨다.
-    </p>
-    <p>
-        우리는 이러한 인지 기만망에 대항하여, 100% 깔끔하게 작동하는 다이렉트 핫라인(<span class="highlight">010-6279-0862</span>)을 통해서만 예약 세션을 활성화한다. 
-        그 어떤 복잡한 꼼수나 변형 추가금 마찰이 들어설 여지를 칼같이 삭제해버렸기 때문에, 
-        방문하는 비즈니스 브로들은 오직 마음 편안하게 음향 시스템에 자기 목소리를 공명시켜 뇌 세포의 이완을 체감하는 힐링에만 포커싱할 수 있어 브로.
-    </p>
+            <!-- 통계 블록 -->
+            <div class="stat-block">
+                <div class="stat-item">
+                    <span class="number">12</span>
+                    <span class="label">프리미엄 객실</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">98.7%</span>
+                    <span class="label">고객 만족도</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">24h</span>
+                    <span class="label">연중무휴 운영</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">3분</span>
+                    <span class="label">화곡역 도보</span>
+                </div>
+            </div>
 
-    <h2>📊 화곡 오피스 밸리 실제 이용자 UGC 피드</h2>
-    <p>
-        다음 검증 피드는 화곡 비즈니스 단지에서 직접 전화를 걸어 예약을 확보하고 요금 스트레스 없이 2차를 완수한 유저들의 내돈내산 요약 정보이다:
-    </p>
-    
-    <div class="review-box">
-        <h3>"화곡 유통무역 김브로" ⭐⭐⭐⭐⭐</h3>
-        <p>프로젝트 성료 후 거래처 모시고 방문했는데 요금 체계가 완벽히 고정 상수로 운영되어 골치 아픈 마찰이 1도 없었습니다. 음향 무선 하드웨어의 출력이 엄청 짱짱하더군요.</p>
-    </div>
+            <!-- 상세 그리드 -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>객실 사양</h3>
+                    <ul>
+                        <li>최대 12인실 (VIP룸: 8~12인)</li>
+                        <li>JBL 전문 오디오 시스템 (700W)</li>
+                        <li>65인치 4K LED 스크린</li>
+                        <li>음성 반응형 조명 시스템</li>
+                        <li>방음 등급 STC 55 이상</li>
+                        <li>개별 냉난방 제어</li>
+                        <li>무선 마이크 4기 (Shure SM58)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>이용 요금 (VAT 포함)</h3>
+                    <ul>
+                        <li>성인 1인 2시간: 25,000원</li>
+                        <li>성인 1인 4시간: 40,000원</li>
+                        <li>VIP룸 2시간 (4인 기준): 140,000원</li>
+                        <li>심야 할인 (23:00~06:00): 20% 할인</li>
+                        <li>음료 무료 리필 (탄산, 커피)</li>
+                        <li>시간 연장: 10분당 2,000원</li>
+                        <li>단체 할인 (8인 이상): 5% 추가 할인</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>특별 서비스</h3>
+                    <ul>
+                        <li>생일/기념일 이벤트 준비 (무료)</li>
+                        <li>반주자용 악기 대여 (기타/키보드)</li>
+                        <li>노래 녹음 및 추출 서비스</li>
+                        <li>스마트폰 원격 곡 검색</li>
+                        <li>주차 공간 무료 (차량 10대 가능)</li>
+                        <li>지정 장소 픽업 서비스 (화곡역)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>음향 데이터</h3>
+                    <ul>
+                        <li>주파수 응답: 20Hz–20kHz (±1dB)</li>
+                        <li>최대 SPL: 115dB</li>
+                        <li>리버브 알고리즘: 12가지 사전 설정</li>
+                        <li>마이크 지향성: 단일 지향성 (카디오이드)</li>
+                        <li>룸 튜닝: 2차 흡음 패널 + 확산판</li>
+                        <li>잔향 시간 (RT60): 0.4초 (최적화)</li>
+                    </ul>
+                </div>
+            </div>
 
-    <div class="review-box">
-        <h3>"가양동 관제실 이팀장" ⭐⭐⭐⭐⭐</h3>
-        <p>인터넷 가짜 대행사 광고 패킷에 수없이 털렸는데, 형이 인증한 010-6279-0862 통화 연결 즉시 아주 훌륭한 룸을 잡았습니다. 가격 무결성 100% 만족입니다!</p>
-    </div>
-
-    <div class="review-box">
-        <h3>"화곡역 지점 정과장" ⭐⭐⭐⭐⭐</h3>
-        <p>덤터기 실랑이로 뇌 밸런스를 갉아먹지 않아서 너무나 든든한 가이드 시스템입니다. 화곡에서 가라오케 갈 거면 핫라인 전화가 단연 원탑입니다!</p>
-    </div>
-
-    <p>
-        더 이상 악질 삐끼 정보망의 오염된 미끼 패킷에 네 소중한 자산 리소스를 낭비하지 마라.
-        아래 핫라인으로 예약 전화를 걸어 화곡 최고의 VIP 룸을 무조건 마운트해라 브로!
-    </p>
-
-    <a href="index.html" class="btn-link">← 메인 쉘로 복귀</a>
-    <a href="tel:010-6279-0862" class="btn-link" style="border-color: #ff0055; color: #fff; background: #881337;">📞 즉시 예약 통화</a>
-</div>
-
+            <!-- 데이터 테이블 -->
+            <h2>운영 시간 및 피크 타임</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>요일</th>
+                        <th>운영 시간</th>
+                        <th>피크 타임</th>
+                        <th>혼잡도 (평균)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>월~목</td>
 </body>
 </html>
